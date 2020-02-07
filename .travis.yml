@@ -1,0 +1,10 @@
+language: python
+version:
+- 3.6
+services:
+- docker
+install:
+- docker build -t testing .
+- docker run -d testing sleep 300
+script:
+- docker ps | grep -q testing
